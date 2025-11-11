@@ -1,6 +1,5 @@
 const { varifyUser } = require("../service/auth");
 
-
 async function restrictUser(req,res,next){
  const token=req.cookies?.tokens;
  
