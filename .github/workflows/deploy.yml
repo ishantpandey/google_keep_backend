@@ -43,7 +43,8 @@ jobs:
           docker stop google-keep-backend || true
           docker rm google-keep-backend || true
           docker run -d --name google-keep-backend \
-            -p 3000:3000 \
+            -p 3000:8000 \
             -e JWT_SECRET=${{ secrets.JWT_SECRET }} \
             -e MONGO_URI=${{ secrets.MONGO_URI }} \
+            -e FRONTEND_ORIGIN=${{ secrets.FRONTEND_ORIGIN }} \
             ${{ secrets.DOCKER_USERNAME }}/google-keep-backend:latest
