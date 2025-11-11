@@ -6,7 +6,6 @@ async function restrictUser(req,res,next){
 
  const user=varifyUser(token)
 
- 
  if(!user) {return res.json({msg:"false"})}
  req.user=user
 
