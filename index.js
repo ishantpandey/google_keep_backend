@@ -9,12 +9,9 @@ dotenv.config()
 app.use(cookieparser())
 app.use(express.json())
 app.use(cors({
-    
     credentials: true,
-  
-     origin:"http://localhost:3000"
-    
- }))
+    origin: process.env.FRONTEND_ORIGIN // e.g., http://<your-frontend-ip>:3000
+}))
 app.use(express.urlencoded({extended:false}))
 app.use('/api',router)
 
