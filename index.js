@@ -13,6 +13,9 @@ app.use(cors({
     origin: process.env.FRONTEND_ORIGIN // e.g., http://<your-frontend-ip>:3000
 }))
 app.use(express.urlencoded({extended:false}))
+app.get('/',(req,res)=>{
+    res.send('server is running')
+})
 app.use('/api',router)
 
 
