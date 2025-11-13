@@ -47,8 +47,9 @@ const loginPage = async (req, res) => {
   
       return res
         .cookie("tokens", token, {
-          secure: true,
           httpOnly: true,
+          secure: false, // true only if using HTTPS
+          sameSite: "lax", // or "none" if using HTTPS and cross-origin
         })
         .json({ success: true, msg: "true" });
         
