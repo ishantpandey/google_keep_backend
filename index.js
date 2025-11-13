@@ -16,13 +16,13 @@ app.use(express.urlencoded({extended:false}))
 app.get('/', (req, res) => {
     res.json({
         message: 'server is running',
-        jwt_secret: process.env.FRONTEND_ORIGIN
+        frontend_origin: process.env.FRONTEND_ORIGIN
     });
 })
 app.use('/api',router)
 
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, () => {
     console.log('server started');
