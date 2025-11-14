@@ -43,7 +43,7 @@ jobs:
           docker rm google-keep-backend || true
           docker rmi ${{ secrets.DOCKER_USERNAME }}/google-keep-backend:latest || true
           docker pull ${{ secrets.DOCKER_USERNAME }}/google-keep-backend:latest
-          docker run -d --name google-keep-backend \
+          docker run -d --restart always --name google-keep-backend \
             -p 8000:8000 \
             -e JWT_SECRET=${{ secrets.JWT_SECRET }} \
             -e MONGO_URI=${{ secrets.MONGO_URI }} \
