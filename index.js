@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
         frontend_origin: process.env.FRONTEND_ORIGIN
     });
 })
-app.use('/api',router)
+app.use('/v1',router)
 
 
 const PORT = process.env.PORT || 5000;
