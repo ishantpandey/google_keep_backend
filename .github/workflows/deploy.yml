@@ -39,12 +39,18 @@ jobs:
     steps:
       - name: Deploy to EC2 
         run: |
+          # Create network only if NOT exists
+          docker network create mern-net || true
+
           docker stop google-keep-backend || true
           docker rm google-keep-backend || true
           docker rmi ${{ secrets.DOCKER_USERNAME }}/google-keep-backend:latest || true
+
           docker pull ${{ secrets.DOCKER_USERNAME }}/google-keep-backend:latest
+
           docker run -d --restart always --name google-keep-backend \
-            -p 8000:8000 \
+            --network mern-net \
+            -p 127.0.0.1:5000:5000 \
             -e JWT_SECRET=${{ secrets.JWT_SECRET }} \
             -e MONGO_URI=${{ secrets.MONGO_URI }} \
             -e FRONTEND_ORIGIN=${{ secrets.FRONTEND_ORIGIN }} \

@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 app.use('/api',router)
 
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
     console.log('server started');
