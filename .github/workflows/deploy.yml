@@ -50,7 +50,7 @@ jobs:
 
           docker run -d --restart always --name google-keep-backend \
             --network mern-net \
-            -p 127.0.0.1:5000:5000 \
+            -p 5000:5000 \
             -e JWT_SECRET=${{ secrets.JWT_SECRET }} \
             -e MONGO_URI=${{ secrets.MONGO_URI }} \
             -e FRONTEND_ORIGIN=${{ secrets.FRONTEND_ORIGIN }} \
